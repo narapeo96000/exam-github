@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -127,11 +128,12 @@
     function submitForm(event) {
       event.preventDefault();
 
-      // ⚠️ ให้นำ URL Web App ที่ได้จาก Google Apps Script มาใส่ในเครื่องหมายคำพูดด้านล่าง
-      const GAS_WEB_APP_URL = 'https://script.google.com/a/macros/ncc.ac.th/s/AKfycbynRtPwW8rdWCdYdUgooGZ2pauCfyAk8s_YrhPx-XG-oMtmR5MjNVyjrRLH9S2Ki1Zt/exec';
+      // ⚠️ ให้นำ URL Web App และ Google Sheet ID มาใส่ในเครื่องหมายคำพูดด้านล่าง
+      const GAS_WEB_APP_URL = 'const GAS_WEB_APP_URL = 'https://script.google.com/a/macros/ncc.ac.th/s/AKfycbynRtPwW8rdWCdYdUgooGZ2pauCfyAk8s_YrhPx-XG-oMtmR5MjNVyjrRLH9S2Ki1Zt/exec';';
+      const TARGET_SHEET_ID = 'YOUR_GOOGLE_SHEET_ID';
 
-      if (GAS_WEB_APP_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
-        alert('กรุณานำ Web App URL จาก Google Apps Script มาใส่ในตัวแปร GAS_WEB_APP_URL ในโค้ดก่อนครับ');
+      if (GAS_WEB_APP_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL' || TARGET_SHEET_ID === '18kIoCbh0mMf688dP9iqgtFvDGhZ8ITbTvezqLWH33ZU') {
+        alert('กรุณานำ Web App URL และ Sheet ID มาใส่ในโค้ดก่อนครับ');
         return;
       }
 
@@ -141,6 +143,7 @@
 
       // รวบรวมข้อมูล
       const userData = {
+        sheetId: TARGET_SHEET_ID, // เพิ่มการส่ง Sheet ID ไปให้ Backend
         school: document.getElementById('school').value,
         name: document.getElementById('name').value,
         answers: []
